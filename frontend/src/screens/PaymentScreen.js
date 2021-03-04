@@ -12,13 +12,13 @@ const PaymentScreen = ({ history }) => {
   if (!shippingAddress) {
     history.push('/shipping');
   }
-  const [paymenMethod, setPaymentMethod] = useState('PayPal');
+  const [paymentMethod, setPaymentMethod] = useState('PayPal');
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(savePaymentMethod({ paymenMethod }));
+    dispatch(savePaymentMethod(paymentMethod));
     history.push('/placeorder');
   };
 
