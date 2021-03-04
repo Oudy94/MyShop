@@ -19,7 +19,7 @@ const orderItemsSchema = mongoose.Schema({
   },
   product: {
     type: mongoose.Schema.Types.ObjectId,
-    require: true,
+    required: true,
     ref: 'Product',
   },
 });
@@ -28,7 +28,7 @@ const orderSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      require: true,
+      required: true,
       ref: 'User',
     },
     orderItems: [orderItemsSchema],
@@ -78,7 +78,7 @@ const orderSchema = mongoose.Schema(
     },
     isDelivered: {
       type: Boolean,
-      require: true,
+      required: true,
       default: false,
     },
     deliveredAt: {
@@ -86,7 +86,7 @@ const orderSchema = mongoose.Schema(
     },
   },
   {
-    timestamp: true,
+    timestamps: true,
   }
 );
 
