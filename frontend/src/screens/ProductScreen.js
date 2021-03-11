@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import Meta from '../components/Meta';
 import {
   listProductDetails,
   createProductReview,
@@ -75,6 +76,7 @@ const ProductScreen = ({ match, history }) => {
         //Check if the product has values
         '_id' in product && (
           <>
+            <Meta title={product.name} />
             <Row>
               <Col md={6}>
                 <Image src={product.image} alt={product.name} fluid />
