@@ -74,7 +74,7 @@ Rating.defaultProps = {
 
 Rating.propTypes = {
   rating: PropTypes.number.isRequired,
-  numReviews: PropTypes.number.isRequired,
+  numReviews: PropTypes.number,
   color: PropTypes.string,
 };
 
