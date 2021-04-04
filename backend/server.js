@@ -17,8 +17,6 @@ connectDB()
 
 const app = express()
 
-app.use(sslRedirect())
-
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
