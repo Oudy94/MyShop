@@ -6,6 +6,7 @@ import morgan from 'morgan'
 import asyncHandler from 'express-async-handler'
 import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
+import { redirectToHTTPS } from './middleware/redirectMiddleware.js'
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
@@ -17,18 +18,7 @@ connectDB()
 
 const app = express()
 
-/* Redirect http to https */
-app.get('*', function (req, res, next) {
-  if (
-    'https' !== req.headers['x-forwarded-proto'] &&
-    'production' === process.env.NODE_ENV
-  ) {
-    res.redirect('https://' + req.hostname + req.url)
-  } else {
-    // Continue to other routes if we're not redirecting
-    next()
-  }
-})
+app.use(redirectToHTTPS)
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
