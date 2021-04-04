@@ -74,6 +74,7 @@ const ProductScreen = ({ match, history }) => {
         <Message Varian='danger'>{error}</Message>
       ) : (
         //Check if the product has values
+        product &&
         '_id' in product && (
           <>
             <Meta title={product.name} />
