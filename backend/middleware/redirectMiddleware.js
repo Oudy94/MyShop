@@ -9,3 +9,5 @@ const redirectToHTTPS = (req, res, next) => {
     next()
   }
 }
+
+export { redirectToHTTPS }
